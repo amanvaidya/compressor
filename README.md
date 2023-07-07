@@ -3,17 +3,21 @@
 This is a compression software developed using Java 8 and Spring Boot.<br>
 It provides the ability to compress various file types, such as images, PDFs, audio, and video files.
 <br>
+
 ## Features
+
 <br>
 - Supports compression of images, PDFs, audio files, and video files.<br>
 - Web-based interface for easy file upload and compression.<br>
 - Customizable compression settings for each file type.<br>
 <br>
+
 ## Prerequisites<br>
 - Java 8 or later<br>
 - Gradle build tool<br>
 - Spring Boot<br>
 <br>
+
 ## Getting Started
 <br>
 1. Clone the repository: git clone https://github.com/amanvaidya/compressor.git
