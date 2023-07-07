@@ -11,7 +11,6 @@ It provides the ability to compress various file types, such as images, PDFs, au
 - Customizable compression settings for each file type.<br>
 <br><br>
 ## Prerequisites<br><br>
-
 - Java 8 or later<br>
 - Gradle build tool<br>
 - Spring Boot<br>
