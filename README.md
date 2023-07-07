@@ -1,4 +1,4 @@
-# compressor
+# File Compression Application
 This is a compression software developed using Java 8 and Spring Boot.<br>
 It provides the ability to compress various file types, such as images, PDFs, audio, and video files.
 
