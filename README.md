@@ -1,6 +1,5 @@
 # compressor
-
-
+<br><br>
 This is a compression software developed using Java 8 and Spring Boot.<br>
 It provides the ability to compress various file types, such as images, PDFs, audio, and video files.
 <br><br>
@@ -23,9 +22,11 @@ It provides the ability to compress various file types, such as images, PDFs, au
 <br><br>
 3. Run the application: gradlew bootRun
 <br><br>
-Contributing<br>
+## Contributing
+<br><br>
 Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 <br><br>
 
-License<br>
+## License
+<br><br>
 This project is licensed under the <a href="https://github.com/amanvaidya/compressor/blob/main/License">MIT License</a>.
