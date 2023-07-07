@@ -18,11 +18,11 @@ It provides the ability to compress various file types, such as images, PDFs, au
 3. Run the application: gradlew bootRun
 
 ## Contributing
-    Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
+- Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
 ## License
-    This project is licensed under the <a href="https://github.com/amanvaidya/compressor/blob/main/License">MIT License</a>.
+- This project is licensed under the <a href="https://github.com/amanvaidya/compressor/blob/main/License">MIT License</a>.
 
 ## Contact
-    If you have any questions or suggestions, feel free to contact me at amanvaidya700@gmail.com
+- If you have any questions or suggestions, feel free to contact me at amanvaidya700@gmail.com
 
