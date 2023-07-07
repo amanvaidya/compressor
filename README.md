@@ -26,6 +26,7 @@ It provides the ability to compress various file types, such as images, PDFs, au
 <br>
 3. Run the application: gradlew bootRun
 <br>
+
 ## Contributing
 <br>
 Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
