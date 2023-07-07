@@ -19,21 +19,20 @@ It provides the ability to compress various file types, such as images, PDFs, au
 ## Getting Started<br>
 
 1. Clone the repository:<br>
-<br>
 
    git clone https://github.com/amanvaidya/compressor.git
 <br>
 2.Build the project:
-   <br><br>
+   <br>
    gradlew clean build
 <br>
-   3.Run the application:<br><br>
+   3.Run the application:<br>
    gradlew bootRun
-<br>
+
 <br>
 Contributing<br>
 Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
-   <br><br>
+   <br>
 
    License<br>
 This project is licensed under the <a href="https://github.com/amanvaidya/compressor/blob/main/License">MIT License</a>.
