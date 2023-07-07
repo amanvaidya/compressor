@@ -1,0 +1,34 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.14-SNAPSHOT'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.hybridgenius'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '1.8'
+}
+
+repositories {
+	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	runtimeOnly 'com.h2database:h2'
+	implementation 'net.coobird:thumbnailator:0.4.14'
+	implementation 'commons-io:commons-io:2.13.0'
+	implementation 'org.apache.pdfbox:pdfbox:2.0.1'
+	implementation 'com.itextpdf:itextpdf:5.5.13.3'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
