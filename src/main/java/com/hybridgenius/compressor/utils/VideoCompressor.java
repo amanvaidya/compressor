@@ -1,4 +1,4 @@
-package com.hybridgenius.compressor.service;
+package com.hybridgenius.compressor.utils;
 
 import org.springframework.stereotype.Service;
 

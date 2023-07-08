@@ -1,5 +1,7 @@
 package com.hybridgenius.compressor.service;
 
+import com.hybridgenius.compressor.utils.ImageCompressor;
+import com.hybridgenius.compressor.utils.PDFCompressor;
 import com.itextpdf.text.DocumentException;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
