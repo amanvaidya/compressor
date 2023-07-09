@@ -9,6 +9,7 @@ import org.apache.pdfbox.rendering.PDFRenderer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageWriter;
@@ -84,7 +85,7 @@ public class PDFCompressor {
 
             FileImageOutputStream output = new FileImageOutputStream(new File(outputImagePath));
             writer.setOutput(output);
-            writer.write(null, new javax.imageio.IIOImage(image, null, null), param);
+            writer.write(null, new IIOImage(image, null, null), param);
 
             output.close();
             writer.dispose();
