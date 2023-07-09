@@ -4,8 +4,13 @@ It provides the ability to compress various file types, such as images, PDFs, au
 
 ## Features
 - Supports compression of images, PDFs, audio files, and video files.<br>
-- Web-based interface for easy file upload and compression.<br>
-- Customizable compression settings for each file type.<br>
+- PDF compression feature
+- Image compression feature
+
+## Road Map:
+- Audio compression
+- Mp3 compression
+- Video compression
 
 ## Prerequisites<br>
 - Java 8 or later<br>
