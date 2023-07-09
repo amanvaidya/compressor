@@ -15,7 +15,7 @@ public class CompressorController {
 
     @GetMapping("/compress")
     public void doCompression() throws DocumentException, IOException {
-        String sourceFilePath = "/Users/amanvaidya/Downloads/output.pdf";
+        String sourceFilePath = "/Users/amanvaidya/Downloads/output.png";
         compressorService.compressFile(sourceFilePath);
     }
 

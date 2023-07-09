@@ -1,40 +1,56 @@
 package com.hybridgenius.compressor.utils;
 
+import org.apache.commons.imaging.ImageFormats;
+import org.apache.commons.imaging.Imaging;
+import org.apache.commons.imaging.common.bytesource.ByteSourceFile;
 import org.springframework.stereotype.Service;
+import org.apache.commons.imaging.formats.jpeg.JpegConstants;
 
+import javax.imageio.IIOImage;
 import javax.imageio.ImageIO;
 import javax.imageio.ImageWriteParam;
 import javax.imageio.ImageWriter;
 import javax.imageio.plugins.jpeg.JPEGImageWriteParam;
+import javax.imageio.stream.FileImageOutputStream;
+import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
+import java.awt.image.ColorConvertOp;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Iterator;
 
 
 @Service
 public class ImageCompressor {
 
     public void compressImage(File sourceFile) throws IOException {
-        String inputFolderPath = "/Users/amanvaidya/Downloads/Myproject1.png";
+        String inputFolderPath = "/Users/amanvaidya/Downloads/backenddevelopment.png";
         String outputFolderPath = "/Users/amanvaidya/Downloads/output.png";
-        BufferedImage image = ImageIO.read(new File(inputFolderPath));
-        ImageWriter writer = ImageIO.getImageWritersByFormatName("jpg").next();
+        float compressionQuality = 0.01f; // Adjust the compression quality (0.0 - 1.0)
+        try {
+            BufferedImage image = ImageIO.read(new File(inputFolderPath));
 
-        ImageWriteParam writeParam = new JPEGImageWriteParam(null);
-        writeParam.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
-        writeParam.setCompressionQuality(0.5f); // Set the compression quality (0.0 - 1.0)
+            Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("png");
+            if (!writers.hasNext()) {
+                throw new IllegalStateException("No PNG ImageWriter found");
+            }
+            ImageWriter writer = writers.next();
 
-        File outputFile = new File(outputFolderPath);
-        FileOutputStream outputStream = new FileOutputStream(outputFile);
+            ImageWriteParam param = writer.getDefaultWriteParam();
+            param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+            param.setCompressionQuality(compressionQuality);
 
-        writer.setOutput(ImageIO.createImageOutputStream(outputStream));
+            FileImageOutputStream output = new FileImageOutputStream(new File(outputFolderPath));
+            writer.setOutput(output);
+            writer.write(null, new IIOImage(image, null, null), param);
 
-        writer.write(null, new javax.imageio.IIOImage(image, null, null), writeParam);
-
-        writer.dispose();
-        outputStream.close();
-
-        System.out.println("Image compression complete.");
+            output.close();
+            writer.dispose();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
+
+
