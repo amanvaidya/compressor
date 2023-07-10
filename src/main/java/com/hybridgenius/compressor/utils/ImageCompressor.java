@@ -25,7 +25,7 @@ public class ImageCompressor {
 
             Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName(fileExtension);
             if (!writers.hasNext()) {
-                throw new IllegalStateException("No PNG ImageWriter found");
+                throw new IllegalStateException("No "+fileExtension+" ImageWriter found");
             }
             ImageWriter writer = writers.next();
 
