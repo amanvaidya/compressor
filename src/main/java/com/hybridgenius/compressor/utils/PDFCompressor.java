@@ -25,10 +25,9 @@ public class PDFCompressor {
     private ClearData clearData;
     public void compressPDF(File sourceFile) throws IOException, DocumentException {
 
-            String sourcePdfPath = "/Users/amanvaidya/Downloads/output.pdf";
             String compressedPdfPath = "/Users/amanvaidya/Desktop/compressor/images/img";
 
-            try (PDDocument document = PDDocument.load(new File(sourcePdfPath))) {
+            try (PDDocument document = PDDocument.load(sourceFile)) {
                 PDFRenderer renderer = new PDFRenderer(document);
 
                 for (int pageNumber = 0; pageNumber < document.getNumberOfPages(); pageNumber++) {
