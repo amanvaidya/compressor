@@ -18,13 +18,12 @@ public class CompressorService {
 
     @Autowired
     private ImageCompressor imageCompressor;
-    public void compressFile(String sourceFilePath) throws DocumentException, IOException {
+    public void compressFile(File sourceFilePath) throws DocumentException, IOException {
         String fileExtension = getFileExtension(sourceFilePath);
-        File sourceFile = new File(sourceFilePath);
 
         switch (fileExtension) {
             case "pdf":
-                pdfCompressor.compressPDF(sourceFile);
+                pdfCompressor.compressPDF(sourceFilePath);
                 break;
             case "mp3":
                 //method call for mp3 compression
@@ -32,7 +31,7 @@ public class CompressorService {
             case "jpeg":
             case "jpg":
             case "png":
-                imageCompressor.compressImage(sourceFile);
+                imageCompressor.compressImage(sourceFilePath, fileExtension);
                 break;
             case "doc":
             case "docx":
@@ -52,8 +51,13 @@ public class CompressorService {
     }
 
 
-    private static String getFileExtension(String filePath) {
-        return FilenameUtils.getExtension(filePath);
+    private static String getFileExtension(File file) {
+        String filename = file.getName();
+        int dotIndex = filename.lastIndexOf('.');
+        if (dotIndex == -1 || dotIndex == filename.length() - 1) {
+            return null;
+        }
+        return filename.substring(dotIndex + 1);
     }
 
 }

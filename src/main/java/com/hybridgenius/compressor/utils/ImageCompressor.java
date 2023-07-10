@@ -17,12 +17,11 @@ import java.util.Iterator;
 @Service
 public class ImageCompressor {
 
-    public void compressImage(File sourceFile) throws IOException {
-        String inputFolderPath = "/Users/amanvaidya/Downloads/backenddevelopment.png";
-        String outputFolderPath = "/Users/amanvaidya/Downloads/output.png";
+    public void compressImage(File sourceFile, String fileExtension) throws IOException {
+        String outputFolderPath = "/Users/amanvaidya/Downloads/output."+fileExtension;
         float compressionQuality = 0.01f; // Adjust the compression quality (0.0 - 1.0)
         try {
-            BufferedImage image = ImageIO.read(new File(inputFolderPath));
+            BufferedImage image = ImageIO.read(sourceFile);
 
             Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName("png");
             if (!writers.hasNext()) {
