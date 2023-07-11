@@ -31,7 +31,7 @@ public class CompressorService {
             case "jpeg":
             case "jpg":
             case "png":
-                imageCompressor.compressImage(sourceFilePath, fileExtension);
+                imageCompressor.compressJpegImage(sourceFilePath, fileExtension);
                 break;
             case "doc":
             case "docx":

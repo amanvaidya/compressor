@@ -12,6 +12,7 @@ java {
 }
 
 repositories {
+	jcenter()
 	mavenCentral()
 	maven { url 'https://repo.spring.io/milestone' }
 	maven { url 'https://repo.spring.io/snapshot' }
@@ -26,7 +27,6 @@ dependencies {
 	implementation 'commons-io:commons-io:2.13.0'
 	implementation 'org.apache.pdfbox:pdfbox:2.0.1'
 	implementation 'com.itextpdf:itextpdf:5.5.13.3'
-
 
 }
 
