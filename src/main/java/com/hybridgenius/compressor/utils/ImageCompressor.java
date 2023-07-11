@@ -21,24 +21,16 @@ public class ImageCompressor {
         String outputFolderPath = "/Users/amanvaidya/Downloads/output."+fileExtension;
         float compressionQuality = 0.01f; // Adjust the compression quality (0.0 - 1.0)
         try {
+            // Read the input image
             BufferedImage image = ImageIO.read(sourceFile);
 
-            Iterator<ImageWriter> writers = ImageIO.getImageWritersByFormatName(fileExtension);
-            if (!writers.hasNext()) {
-                throw new IllegalStateException("No "+fileExtension+" ImageWriter found");
-            }
-            ImageWriter writer = writers.next();
+            // Create the output file
+            File outputFile = new File(outputFolderPath);
 
-            ImageWriteParam param = writer.getDefaultWriteParam();
-            param.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
-            param.setCompressionQuality(compressionQuality);
+            // Compress and save the image
+            ImageIO.write(image, "JPEG", outputFile);
 
-            FileImageOutputStream output = new FileImageOutputStream(new File(outputFolderPath));
-            writer.setOutput(output);
-            writer.write(null, new IIOImage(image, null, null), param);
-
-            output.close();
-            writer.dispose();
+            System.out.println("Image compression completed.");
         } catch (IOException e) {
             e.printStackTrace();
         }
