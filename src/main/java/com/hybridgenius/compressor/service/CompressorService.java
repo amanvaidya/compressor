@@ -1,5 +1,6 @@
 package com.hybridgenius.compressor.service;
 
+import com.hybridgenius.compressor.utils.DocCompressor;
 import com.hybridgenius.compressor.utils.ImageCompressor;
 import com.hybridgenius.compressor.utils.PDFCompressor;
 import com.itextpdf.text.DocumentException;
@@ -18,6 +19,9 @@ public class CompressorService {
 
     @Autowired
     private ImageCompressor imageCompressor;
+
+    @Autowired
+    private DocCompressor docCompressor;
     public void compressFile(File sourceFilePath) throws DocumentException, IOException {
         String fileExtension = getFileExtension(sourceFilePath);
 
@@ -34,8 +38,10 @@ public class CompressorService {
                 imageCompressor.compressJpegImage(sourceFilePath, fileExtension);
                 break;
             case "doc":
+                docCompressor.compressDoc(sourceFilePath, fileExtension);
+                break;
             case "docx":
-                //method call for doc/docx compression
+                docCompressor.compressDocx(sourceFilePath, fileExtension);
                 break;
             case "wav":
             case "flac":
