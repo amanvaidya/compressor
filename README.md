@@ -6,6 +6,7 @@ It provides the ability to compress various file types, such as images, PDFs, au
 - Supports compression of images, PDFs, audio files, and video files.<br>
 - PDF compression feature
 - Image compression feature
+- Doc and Docx extension feature
 
 ## Road Map:
 - Audio compression
