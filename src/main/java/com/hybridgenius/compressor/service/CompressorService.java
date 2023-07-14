@@ -4,7 +4,6 @@ import com.hybridgenius.compressor.utils.DocCompressor;
 import com.hybridgenius.compressor.utils.ImageCompressor;
 import com.hybridgenius.compressor.utils.PDFCompressor;
 import com.itextpdf.text.DocumentException;
-import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
