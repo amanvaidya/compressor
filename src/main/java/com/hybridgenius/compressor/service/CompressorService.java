@@ -57,7 +57,7 @@ public class CompressorService {
     }
 
 
-    public static String getFileExtension(File file) {
+    public String getFileExtension(File file) {
         String filename = file.getName();
         int dotIndex = filename.lastIndexOf('.');
         if (dotIndex == -1 || dotIndex == filename.length() - 1) {
