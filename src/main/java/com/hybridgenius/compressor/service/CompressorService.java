@@ -21,7 +21,7 @@ public class CompressorService {
 
     @Autowired
     private DocCompressor docCompressor;
-    public void compressFile(File sourceFilePath) throws DocumentException, IOException {
+    public byte[] compressFile(File sourceFilePath) throws DocumentException, IOException {
         String fileExtension = getFileExtension(sourceFilePath);
 
         switch (fileExtension) {
@@ -34,8 +34,8 @@ public class CompressorService {
             case "jpeg":
             case "jpg":
             case "png":
-                imageCompressor.compressJpegImage(sourceFilePath, fileExtension);
-                break;
+                return imageCompressor.compressJpegImage(sourceFilePath, fileExtension);
+                //break;
             case "doc":
                 docCompressor.compressDoc(sourceFilePath, fileExtension);
                 break;
@@ -53,10 +53,11 @@ public class CompressorService {
             default:
                 System.out.println("Unsupported file type: " + fileExtension);
         }
+        return null;
     }
 
 
-    private static String getFileExtension(File file) {
+    public static String getFileExtension(File file) {
         String filename = file.getName();
         int dotIndex = filename.lastIndexOf('.');
         if (dotIndex == -1 || dotIndex == filename.length() - 1) {
