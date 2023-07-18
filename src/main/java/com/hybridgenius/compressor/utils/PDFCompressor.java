@@ -23,7 +23,7 @@ public class PDFCompressor {
 
     @Autowired
     private ClearData clearData;
-    public void compressPDF(File sourceFile) throws IOException, DocumentException {
+    public byte[] compressPDF(File sourceFile) throws IOException, DocumentException {
 
             String compressedPdfPath = "/Users/amanvaidya/Desktop/compressor/images/img";
 
@@ -40,15 +40,17 @@ public class PDFCompressor {
 
                     System.out.println("Page " + (pageNumber + 1) + " converted to image.");
                 }
-                compress();
                 System.out.println("PDF to image conversion complete.");
+                return compress();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            return null;
 
     }
 
-    private void compress(){
+    private byte[] compress(){
         String inputFolderPath = "/Users/amanvaidya/Desktop/compressor/images/";
         String outputFolderPath = "/Users/amanvaidya/Desktop/compressor/images/";
         float compressionQuality = 0.01f; // Adjust the compression quality (0.0 - 1.0)
@@ -65,7 +67,7 @@ public class PDFCompressor {
         }
 
         System.out.println("Image compression complete.");
-        imageToPdf();
+        return imageToPdf();
     }
 
     private static void compressPNGImage(String inputImagePath, String outputImagePath, float compressionQuality) {
@@ -93,9 +95,8 @@ public class PDFCompressor {
         }
     }
 
-    public void imageToPdf(){
+    public byte[] imageToPdf(){
         String inputFolderPath = "/Users/amanvaidya/Desktop/compressor/images/";
-        String outputFilePath = "/Users/amanvaidya/Downloads/outputComp.pdf";
 
         try {
             PDDocument document = new PDDocument();
@@ -115,14 +116,17 @@ public class PDFCompressor {
                 }
             }
 
-            document.save(outputFilePath);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            document.save(baos);
             document.close();
 
-            System.out.println("Images converted to PDF: " + outputFilePath);
+            System.out.println("Images converted to PDF: " );
             clearData.clearData();
+            return baos.toByteArray();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 
 }

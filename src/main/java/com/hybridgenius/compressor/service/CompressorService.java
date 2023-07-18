@@ -26,8 +26,8 @@ public class CompressorService {
 
         switch (fileExtension) {
             case "pdf":
-                pdfCompressor.compressPDF(sourceFilePath);
-                break;
+                return pdfCompressor.compressPDF(sourceFilePath);
+
             case "mp3":
                 //method call for mp3 compression
                 break;
