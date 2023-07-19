@@ -14,8 +14,8 @@ import java.util.zip.ZipOutputStream;
 
 @Service
 public class DocCompressor {
-    public void compressDoc(File sourceFile, String fileExtension){
-        String outputFilePath = "/Users/amanvaidya/Downloads/output."+fileExtension;
+    public byte[] compressDoc(File sourceFile){
+        String outputFileName = sourceFile.getName();
         try {
             FileInputStream fis = new FileInputStream(sourceFile);
             HWPFDocument document = new HWPFDocument(fis);
@@ -25,10 +25,10 @@ public class DocCompressor {
 
             fis.close();
 
-            FileOutputStream fos = new FileOutputStream(outputFilePath);
-            ZipOutputStream zos = new ZipOutputStream(fos);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ZipOutputStream zos = new ZipOutputStream(baos);
 
-            ZipEntry entry = new ZipEntry("compressed.doc");
+            ZipEntry entry = new ZipEntry(outputFileName);
             zos.putNextEntry(entry);
 
             byte[] data = content.getBytes();
@@ -38,16 +38,18 @@ public class DocCompressor {
             zos.close();
 
             System.out.println("Compression completed successfully.");
+
+            return baos.toByteArray();
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 
-    public static void compressDocx(File sourceFile, String fileExtension) {
-        String outputFilePath = "/Users/amanvaidya/Downloads/output." + fileExtension;
+    public byte[] compressDocx(File sourceFile) {
         try {
-            FileOutputStream fos = new FileOutputStream(outputFilePath);
-            ZipOutputStream zos = new ZipOutputStream(fos);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ZipOutputStream zos = new ZipOutputStream(baos);
 
             OPCPackage opcPackage = OPCPackage.open(sourceFile.getPath(), PackageAccess.READ);
 
@@ -70,10 +72,14 @@ public class DocCompressor {
             zos.close();
 
             System.out.println("Compression completed successfully.");
+
+            return baos.toByteArray();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InvalidFormatException e) {
             throw new RuntimeException(e);
         }
+
+        return null; // Return null in case of any errors
     }
 }

@@ -37,11 +37,9 @@ public class CompressorService {
                 return imageCompressor.compressJpegImage(sourceFilePath, fileExtension);
                 //break;
             case "doc":
-                docCompressor.compressDoc(sourceFilePath, fileExtension);
-                break;
+                return docCompressor.compressDoc(sourceFilePath);
             case "docx":
-                docCompressor.compressDocx(sourceFilePath, fileExtension);
-                break;
+                return docCompressor.compressDocx(sourceFilePath);
             case "wav":
             case "flac":
                 //method call for audio compression
