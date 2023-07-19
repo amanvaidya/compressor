@@ -80,6 +80,6 @@ public class DocCompressor {
             throw new RuntimeException(e);
         }
 
-        return null; // Return null in case of any errors
+        return null;
     }
 }
