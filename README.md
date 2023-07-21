@@ -7,6 +7,8 @@ It provides the ability to compress various file types, such as images, PDFs, au
 - PDF compression feature
 - Image compression feature
 - Doc and Docx extension feature
+  
+## V1 complete, pdf compression optimized code fix will be applied after completion of proxy service.
 
 ## Road Map:
 - Audio compression
